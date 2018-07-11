@@ -2,8 +2,15 @@
 
 What the title says.  The template follows [Ursula Le Guin's
 guidelines for manuscript
-preparation](http://www.ursulakleguin.com/ManuscriptPrep.html).
-It uses the `memoir` class and XeLaTeX/LuaLaTeX.
+preparation](http://www.ursulakleguin.com/ManuscriptPrep.html).  It
+uses the LaTeX `memoir` class and XeLaTeX/LuaLaTeX as PDF engine.
+Don't try to use it with PDFLaTeX!
+
+## Requirements
+
+- Pandoc 2.2.1 or newer (Could work with an older one, but not 2.0 or
+  older)
+- An up-to-date TeX distribution
 
 ## Usage
 
