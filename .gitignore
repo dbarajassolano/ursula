@@ -1,0 +1,9 @@
+# Emacs-related files
+*~
+.tramp_history
+
+# AUCTeX-related files
+auto
+
+# Output
+*.pdf

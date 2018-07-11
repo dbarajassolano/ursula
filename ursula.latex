@@ -1,0 +1,139 @@
+\documentclass[letterpaper,12pt,oneside,onecolumn,openright,final]{memoir}
+
+\usepackage{fontspec}
+\usepackage{indentfirst}
+\usepackage[group-minimum-digits=4,group-separator={,}]{siunitx}
+\usepackage{hyperref}
+
+% Fonts
+\setmainfont{Latin Modern Roman}
+
+% Margins
+\setlrmarginsandblock{1in}{*}{*}
+\setulmarginsandblock{1in}{*}{*}
+\checkandfixthelayout
+
+% Justification and spacing
+\raggedright
+\midsloppy
+\setlength{\parindent}{3em}
+\DoubleSpacing*
+
+% Title formatting
+\renewcommand{\maketitle}{%
+  \maketitlehooka
+  \begin{center}
+    \vspace*{192pt}
+    
+    \MakeUppercase{\thetitle}
+    \vspace{12pt}
+    
+    by \theauthor
+    \maketitlehookd
+  \end{center}
+}
+
+% Don't page break before the first chapter
+\renewcommand{\clearforchapter}{\ifnum\value{chapter}>0 \cleartorecto\fi}
+
+% Chapter format
+\makechapterstyle{ursula}{%
+  % \setlength\beforechapskip{48pt minus \baselineskip}
+  \setlength{\beforechapskip}{-\baselineskip}\addtolength{\beforechapskip}{96pt}  
+  \setlength{\midchapskip}{-\baselineskip}\addtolength{\midchapskip}{24pt}
+  \setlength{\afterchapskip}{-\baselineskip}\addtolength{\afterchapskip}{48pt}
+  % \setlength\midchapskip{24pt minus \baselineskip}
+  % \setlength\afterchapskip{24pt minus \baselineskip}
+  \renewcommand{\chapnamefont}{\centering\normalfont}
+  \renewcommand{\chapnumfont}{\centering\normalfont}
+  \renewcommand\chaptitlefont{\centering\normalfont}
+}
+\chapterstyle{ursula}
+
+% Header and footer for chapter first page
+\copypagestyle{chapter}{plain}
+\makeoddfoot{chapter}{}{}{}
+\makeoddhead{chapter}{}{}{\ifnum\value{chapter}>1
+  $for(author)$
+  $if(author.lastname)$
+  $author.lastname$, %
+  $else$
+  $author$, %
+  $endif$
+  $endfor$
+  $if(shorttitle)$
+  $shorttitle$, %
+  $endif$
+  \thepage\fi}
+
+% Header for other pages
+\makepagestyle{ursula}
+\makeoddhead{ursula}{}{}{
+  $for(author)$
+  $if(author.lastname)$
+  $author.lastname$, %
+  $else$
+  $author$, %
+  $endif$
+  $endfor$
+  $if(shorttitle)$
+  $shorttitle$, %
+  $endif$
+  \thepage}
+\pagestyle{ursula}
+
+% Title
+$if(title)$
+\title{\MakeUppercase{$title$}}
+$endif$
+
+% Author
+$for(author)$
+$if(author.penname)$
+\author{$author.penname$}
+$else$
+\author{$author$}
+$endif$
+$endfor$
+
+\begin{document}
+
+\begin{titlingpage}
+  \newcommand{\authinfo}[1]{\gdef\authinfoA{#1}}%
+  \newcommand{\authinfoA}{}%
+  \renewcommand{\maketitlehooka}{%
+    \begin{SingleSpace}
+      \authinfoA
+    \end{SingleSpace}
+  }
+  \renewcommand{\maketitlehookd}{%
+    $if(wordcount)$
+    \vfill
+    about \num{$wordcount$} words
+    $endif$
+  }
+  \authinfo{%
+    $for(author)$
+    $if(author.name)$
+    $author.name$\\
+    $else$
+    $author$\\
+    $endif$
+    $endfor$
+    $for(address)$
+    $address$\\
+    $endfor$
+  }
+  \maketitle
+\end{titlingpage}
+
+\maketitle
+
+$body$
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
