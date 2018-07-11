@@ -70,6 +70,6 @@ pandoc -o example.pdf --lua-filter scene-separator.lua \
 
 This displays the line "about 1,000 words" at the bottom of the title
 page (as borrowed from [William Shunn's timeless
-guidelines](https://www.writerswrite.com/journal/dec98/proper-manuscript-format-12984).
+guidelines](https://www.writerswrite.com/journal/dec98/proper-manuscript-format-12984)).
 This can be automated with the word count filter.  See
 `example/Makefile` for an example.
