@@ -88,5 +88,14 @@ switch back and forth the `--pdf-engine` argument from `lualatex` to
 the font.  E.g., in my system (macOS, with TeXLive 2017), LuaLaTeX can
 find Latin Modern Roman, while XeLaTeX can't.  On the other hand,
 LuaLaTeX can't find `.dfont` fonts, while XeLaTeX can.  Finally,
-LuaLaTeX has trouble finding TypeKit fonts, whereas XeLaTeX does it
+LuaLaTeX has trouble finding Adobe TypeKit fonts, whereas XeLaTeX does it
 well.  Your mileage may vary.
+
+### A more William Shunn's flavor
+
+On can select a monospaced font, resulting in a manuscript that
+partially follows William Shunn's guidelines.  In fact, the default
+spacings and paragraph indent are mostly chosen following these
+guidelines (as Le Guin's guidelines are not terribly opinionated about
+number of blank lines between this and that).  I don't claim to follow
+Shunn's guidelines exactly, though.
