@@ -11,7 +11,9 @@ Also copy both `.lua` files to `$DATADIR/filters`.  Then, you can do
 something like
 
 ```
-pandoc -o example.pdf --lua-filter scene-separator.lua --template ursula --pdf-engine=lualatex src1.md src2.md metadata.yaml
+pandoc -o example.pdf --lua-filter scene-separator.lua \
+    --template ursula --pdf-engine=lualatex \
+	src1.md src2.md metadata.yaml
 ```
 
 where `src1.md` etc. are your Markdown source files, and
@@ -60,7 +62,10 @@ Additionally, you can pass a word count to be displayed on the output
 by doing something like
 
 ```
-pandoc -o example.pdf --lua-filter scene-separator.lua --template ursula --pdf-engine=lualatex src1.md src2.md metadata.yaml --metadata wordcount=1000
+pandoc -o example.pdf --lua-filter scene-separator.lua \
+    --template ursula --pdf-engine=lualatex \
+	src1.md src2.md metadata.yaml \
+	--metadata wordcount=1000
 ```
 
 This displays the line "about 1,000 words" at the bottom of the title
