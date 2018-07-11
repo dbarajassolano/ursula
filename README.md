@@ -3,6 +3,7 @@
 What the title says.  The template follows [Ursula Le Guin's
 guidelines for manuscript
 preparation](http://www.ursulakleguin.com/ManuscriptPrep.html).
+It uses the `memoir` class and XeLaTeX/LuaLaTeX.
 
 ## Usage
 
@@ -73,3 +74,19 @@ page (as borrowed from [William Shunn's timeless
 guidelines](https://www.writerswrite.com/journal/dec98/proper-manuscript-format-12984)).
 This can be automated with the word count filter.  See
 `example/Makefile` for an example.
+
+### Font selection
+
+The default font is Latin Modern Roman, which I believe follows Le
+Guin's guideline of a "clear, plain typeface or font".  Alternatively,
+one can specify an OpenType/TrueType font to be used by passing
+something like `--metadata font="Courier Prime"`.
+
+Note that depending on your system and configuration, you may want to
+switch back and forth the `--pdf-engine` argument from `lualatex` to
+`xelatex` in case `fontspec` complains about not being able to find
+the font.  E.g., in my system (macOS, with TeXLive 2017), LuaLaTeX can
+find Latin Modern Roman, while XeLaTeX can't.  On the other hand,
+LuaLaTeX can't find `.dfont` fonts, while XeLaTeX can.  Finally,
+LuaLaTeX has trouble finding TypeKit fonts, whereas XeLaTeX does it
+well.  Your mileage may vary.
